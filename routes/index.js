@@ -20,16 +20,13 @@ exports.create_short = function(req, res) {
         if (err) {
             res.json({'status': 'failed', 'message': err});
         } else {
-            console.log('in else');
             if (reply == null) {
-                console.log('in if');
                 // key does not exists
                 client.mset([
                     id, long_url,
-                    id+'-hits', "0",
                     id+'-created', new Date().getTime()
                     ], redis.print);
-                console.log('values set');
+                client.lpush(id+'-hits', "");
                 res.json({
                     'status': 'success', 
                     'short_id': id, 
@@ -44,16 +41,19 @@ exports.create_short = function(req, res) {
 }
 
 exports.find_redirect = function(req, res) {
-    var id = req.slug;
+    var id = req.params.slug;
+    console.log(id);
     client.get(id, function(err, reply) {
         if (err) {
             res.json({'status': 'failed', 'message': err});
         } else {
             if (reply == null) {
                 // url has not been created
-                res.json({'status': 'failed', 'message': 'id not found'});
+                res.json({'status': 'success', 'message': 'id not found'});
             } else {
-                console.log(reply);
+                // found, return the long_url
+                client.lpush(id+'-hits', new Date().getTime());
+                res.json({'status': 'success', 'long_url': reply});
             }
         }
     })
