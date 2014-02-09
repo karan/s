@@ -9,7 +9,7 @@ client.on("error", function(err) {
 })
 
 exports.index = function(req, res){
-  res.json({'status': 'success'});
+  res.render('index', {title: 'Homepage'});
 };
 
 exports.create_short = function(req, res) {
