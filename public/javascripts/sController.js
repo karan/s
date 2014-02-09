@@ -1,4 +1,4 @@
-var sApp = angular.module("sApp", []);
+var sApp = angular.module("sApp", ["ngAnimate"]);
 
 sApp.controller("sCtrl", ["$scope", "$http", function($scope, $http) {
     $scope.long_url = "";

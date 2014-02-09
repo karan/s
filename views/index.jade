@@ -3,14 +3,18 @@ html
     head
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-animate.js')
         script(src='/javascripts/sController.js')
     body
         div.form(ng-app="sApp")
             div(ng-controller="sCtrl")
-                div.input-grp
-                    input(type="text", placeholder="URL to shorten", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus)
+                div.input-grp.cube
+                    input(type="text", placeholder="URL to shorten", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus, class="long-field")
+                    div.short-field(ng-if="short_url")
+                        //input(type="text", ng-model="short_url")
+                        h2 Hello
                     button(ng-click="shorten(long_url)") Shorten
 
-                    div(ng-if="short_url")
+                    div.slide(ng-if="short_url")
                         p {{short_url}}
