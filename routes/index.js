@@ -1,6 +1,6 @@
 var redis = require('redis');
 var url = require('url');
-var redisURL = url.parse("redis://rediscloud:ZHQ4zawEFonN3RO8@pub-redis-14216.us-east-1-3.1.ec2.garantiadata.com:14216");
+var redisURL = url.parse(process.env.REDISCLOUD_URL);
 var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
 client.auth(redisURL.auth.split(":")[1]);
 
