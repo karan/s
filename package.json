@@ -10,7 +10,25 @@
   "dependencies": {
     "express": "3.4.7",
     "jade": "*",
-    "redis": "*",
-    "redis-url": "~0.2.0"
-  }
+    "redis": "*"
+  },
+  "description": "s =",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karan/s.git"
+  },
+  "keywords": [
+    "url",
+    "shortener",
+    "shorten",
+    "internet"
+  ],
+  "author": "Karan Goel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karan/s/issues"
+  },
+  "homepage": "https://s.goel.im"
 }

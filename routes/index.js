@@ -1,4 +1,8 @@
-var client = require('redis-url').connect(process.env.REDISTOGO_URL);
+var redis = require('redis');
+var url = require('url');
+var redisURL = url.parse("redis://rediscloud:ZHQ4zawEFonN3RO8@pub-redis-14216.us-east-1-3.1.ec2.garantiadata.com:14216");
+var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+client.auth(redisURL.auth.split(":")[1]);
 
 var MAX_LENGTH = 3;
 
@@ -7,7 +11,7 @@ client.on("error", function(err) {
 })
 
 exports.index = function(req, res){
-  res.render('index', {title: 'Homepage'});
+  res.render('index', {title: 's - Karan Goel'});
 };
 
 exports.create_short = function(req, res) {
