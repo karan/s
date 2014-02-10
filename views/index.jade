@@ -7,11 +7,11 @@ html
         script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-animate.js')
         script(src='/javascripts/sController.js')
     body
-        div.form(ng-app="sApp")
-            div(ng-controller="sCtrl")
-                div.input-grp
-                    input(type="text", placeholder="URL to shorten", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus, class="long-field", size="80")
-                    button(ng-click="shorten(long_url)") Shorten
-
-                    div.slide(ng-if="short_url")
-                        p {{short_url}}
+        div.wrap
+            div.logo
+                h1 s
+            div.form(ng-app="sApp")
+                div(ng-controller="sCtrl")
+                    div.input-grp
+                        input.long_url(type="text", placeholder="Enter long URL", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus, class="long-field", size="80")
+                        button(ng-click="shorten(long_url)") Shorten

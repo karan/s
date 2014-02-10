@@ -1,9 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800italic,400,800,700);
+@import url(http://fonts.googleapis.com/css?family=Sonsie+One);
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  -webkit-perspective: 1000px; 
+    font: 14px "Open san", Helvetica, Arial, sans-serif;
+    height: 100%;
+    text-align: center;
+    color: #fff;
 }
 
-a {
-  color: #00B7FF;
+.logo {
+    margin: 20px auto;
+}
+
+h1 {
+    font-family: 'Sonsie One', 'Open sans', Helvetica, Arial, sans-serif;
+    margin: 10% auto;
+    font-size: 12em;
+    font-style: italic;
+    margin: 0px auto 5% auto;
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    background: -webkit-radial-gradient(#0074D9, #001F3F);
+    background: radial-gradient(#0074D9, #001F3F);
+    overflow: hidden;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+div.form {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    height: 30%;
+    margin-top: -15%;
+}
+
+input {
+    font-size: 16px;
+    letter-spacing: 1px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 80%;
+    height: 40px;
+    float: left;
+    border: 0;
+    color: #fff;
+    background: rgba(0,0,0,.1);
+    padding: 10px;
+    outline: 0px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.15), 0 2px 4px rgba(0,0,0,.2) inset, 0 0 12px rgba(255,255,255,.1);
+}
+
+input.long_url {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+input:focus {
+    border: 1px solid #51cbee;
+}
+
+button {
+    height: 40px;
+    width: 20%;
+    cursor: pointer;
+    margin: 0;
+    border: 0;
+    padding: 6px 12px;
+    text-shadow: 0 1px #DDD;
+    font-size: 16px;
+    -webkit-transition: .1s;
+    transition: .1s;
+    background-color: #001F3F;
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+button:hover {
+    background-color: #0C2C48;
 }
