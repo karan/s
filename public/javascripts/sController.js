@@ -17,3 +17,19 @@ sApp.controller("sCtrl", ["$scope", "$http", function($scope, $http) {
         });
     }
 }]);
+
+sApp.directive("toggleBtn", function () {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            elem.bind("click", function () {
+                console.log(elem + ' clicked');
+                if(elem.val() == "Shorten") {
+                    elem.val("Copy");
+                } else {
+                    elem.val("Shorten");
+                }
+            });
+        }
+    }
+});

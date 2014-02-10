@@ -17,4 +17,6 @@ html
                     div(ng-controller="sCtrl")
                         div.input-grp
                             input.long_url(type="text", placeholder="Enter long URL", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus, class="long-field")
-                            button(ng-click="shorten(long_url)") Shorten
+                            input(type="button", ng-click="shorten(long_url)", toggle-btn, value="Shorten")
+                            div.short_long(ng-if="short_url")
+                                p now points to {{long_url}}
