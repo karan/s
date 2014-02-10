@@ -2,7 +2,6 @@ var redis = require('redis'),
     client = redis.createClient();
 
 var MAX_LENGTH = 3;
-var domain = 'http://localhost:8000/'
 
 client.on("error", function(err) {
     console.log(err);
@@ -30,7 +29,7 @@ exports.create_short = function(req, res) {
                 res.json({
                     'status': 'success', 
                     'short_id': id, 
-                    'short_url': domain + id,
+                    'short_url': req.protocol + "://" + req.get('host') + '/' + id,
                     'long_url': long_url
                 });
             } else {
@@ -53,7 +52,7 @@ exports.find_redirect = function(req, res) {
             } else {
                 // found, return the long_url
                 client.lpush(id+'-hits', new Date().getTime());
-                res.json({'status': 'success', 'long_url': reply});
+                res.redirect(reply);
             }
         }
     })

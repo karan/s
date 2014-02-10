@@ -45,20 +45,6 @@ Generates a new short URL for the given long url.
 
 #### Get the long URL
 
-Returns the long URL of the passed short URL, if exists. Also increases the hit counter and pushes the hit timestamp.
+Redirects to the long URL of the passed short URL, if exists. Also increases the hit counter and pushes the hit timestamp.
 
 `GET /:slug`
-
-**Response**
-
-    {
-      "status": "success",
-      "long_url": "https://news.ycombinator.com/item?id=7202182"
-    }
-
-If `slug` does not exist, 
-
-    {
-      "status": "success",
-      "message": "id not found"
-    }
