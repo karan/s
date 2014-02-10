@@ -1,14 +1,14 @@
-var redis = require('redis');
-var url = require('url');
-var redisURL = url.parse(process.env.REDISCLOUD_URL);
-var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
-client.auth(redisURL.auth.split(":")[1]);
+if (process.env.REDISTOGO_URL) {
+    var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+    var client = require("redis").createClient(rtg.port, rtg.hostname);
+    client.auth(rtg.auth.split(":")[1]);
+    console.log('using cloud');
+} else {
+    var client = require("redis").createClient();
+    console.log('using local');
+}
 
 var MAX_LENGTH = 3;
-
-client.on("error", function(err) {
-    console.log(err);
-})
 
 exports.index = function(req, res){
   res.render('index', {title: 's - Karan Goel'});
@@ -27,7 +27,7 @@ exports.create_short = function(req, res) {
                 client.mset([
                     id, long_url,
                     id+'-created', new Date().getTime()
-                    ], redis.print);
+                    ], function(arr, set_res) {console.log(set_res);});
                 client.lpush(id+'-hits', "");
                 res.json({
                     'status': 'success', 
@@ -52,7 +52,7 @@ exports.find_redirect = function(req, res) {
         } else {
             if (reply == null) {
                 // url has not been created
-                res.json({'status': 'success', 'message': 'id not found'});
+                res.json({'status': 'success', 'message': 'id ' + id + ' not found'});
             } else {
                 // found, return the long_url
                 client.lpush(id+'-hits', new Date().getTime());
