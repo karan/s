@@ -43,6 +43,7 @@ exports.find_redirect = function(req, res) {
     var id = req.params.slug;
     console.log(id);
     client.get(id, function(err, reply) {
+        console.log('reply: ' + reply);
         if (err) {
             res.json({'status': 'failed', 'message': err});
         } else {
