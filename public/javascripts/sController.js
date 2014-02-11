@@ -1,7 +1,9 @@
 var sApp = angular.module("sApp", []);
 
 sApp.directive("toggleBtn", function () {
+    console.log("toggle btn");
     return {
+        scope: {},
         restrict: 'A',
         controller: function($scope, $http) {
             $scope.long_url = "";
@@ -21,7 +23,20 @@ sApp.directive("toggleBtn", function () {
         },
         link: function (scope, elem, attrs) {
             elem.bind("click", function () {
-                scope.shorten(scope.long_url);
+                scope.$apply(scope.shorten(scope.long_url));
+            });
+        }
+    }
+});
+
+sApp.directive("selectClick", function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.bind('click', function () {
+                if (scope.short_url != '') {
+                    this.select();
+                }
             });
         }
     }
