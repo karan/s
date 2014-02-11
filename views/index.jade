@@ -3,8 +3,7 @@ html
     head
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js')
-        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-animate.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
         script(src='/javascripts/sController.js')
 
         meta(name="viewport", content="width=device-width, user-scalable=no")
@@ -14,9 +13,10 @@ html
                 h1 s
             div.form(ng-app="sApp")
                 form
-                    div(ng-controller="sCtrl")
+                    div
                         div.input-grp
                             input.long_url(type="text", placeholder="Enter long URL", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus, class="long-field")
-                            input(type="button", ng-click="shorten(long_url)", toggle-btn, value="Shorten")
+                            input(type="button", toggle-btn, value="Shorten")
+                            p {{short_url}}
                             div.short_long(ng-if="short_url")
                                 p now points to {{long_url}}
