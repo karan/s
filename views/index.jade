@@ -15,8 +15,13 @@ html
                 form
                     div
                         div.input-grp
-                            input.long_url(type="text", placeholder="Enter long URL", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus, class="long-field", select-click)
-                            input(type="button", toggle-btn, value="Shorten")
-                            p {{short_url}}
-                            div.short_long(ng-if="short_url")
-                                p now points to {{long_url}}
+                            input.long_url(type="text", placeholder="Enter long URL", ng-model="long_url", ng-keyup="$event.keyCode == 13 ? shorten(long_url) : null", required, autofocus, class="long-field")
+                            input(type="button", value="Shorten", toggle-btn)
+            div.about
+                p
+                    i s
+                    |  is a high-performance, anonymous URL shortener. 
+                    a(href="https://github.com/karan/s") Open source project
+                    |  by 
+                    a(href="https://www.goel.im") Karan Goel
+                    | .

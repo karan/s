@@ -8,6 +8,16 @@ body {
     color: #fff;
 }
 
+a {
+    color: #eee;
+    padding: 3px 1px;
+}
+
+a:hover {
+    color: #fff;
+    background-color: #0074D9;
+}
+
 .logo {
     margin: 20px auto;
 }

@@ -1,6 +1,8 @@
 s
 =
 
+Release status: *alpha*
+
 A high-performance, anonymous URL shortener built using Redis + Node.js with a API-backed design.
 
 ### Features

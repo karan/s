@@ -14,6 +14,7 @@ sApp.directive("toggleBtn", function () {
                 .success(function(data) {
                     $scope.short_url = data["short_url"];
                     console.log($scope.short_url);
+                    $scope.long_url = $scope.short_url;
                 })
                 .error(function(data) {
                     alert("Something went wrong. Try again!");
