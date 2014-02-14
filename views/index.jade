@@ -1,30 +1,30 @@
 doctype html
 html
-    head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
-        script(src='/javascripts/sController.js')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
+    script(src='/javascripts/sController.js')
 
-        meta(name="viewport", content="width=device-width, user-scalable=no")
-    body(ng-app="sApp")
-        p.error-block(ng-show="form.$invalid && form.url.$dirty") Enter a valid URL that starts with "http://".
-        div.wrap
-            div.logo
-                h1 s
-            div.form
-                form(name="form", novalidate)
-                    div
-                        div.input-grp
-                            input.long_url(type="url", placeholder="Enter long URL", ng-model="long_url", required, autofocus="true", class="long-field", ng-required="true", name="url", ng-keyup="$event.keyCode == 13 && form.$valid ? shorten(long_url) : null")
+    meta(name="viewport", content="width=device-width, user-scalable=no")
+  body(ng-app="sApp")
+    p.error-block(ng-show="form.$invalid && form.url.$dirty") Enter a valid URL that starts with "http://".
+    div.wrap
+      div.logo
+        h1 s
+      div.form
+        form(name="form", novalidate)
+          div
+            div.input-grp
+              input.long_url(type="url", placeholder="Enter long URL", ng-model="long_url", required, autofocus="true", class="long-field", ng-required="true", name="url", ng-keyup="$event.keyCode == 13 && form.$valid ? shorten(long_url) : null")
 
-                            input(type="button", value="Shorten", ng-disabled="form.$invalid", toggle-btn, ng-submit="shorten(long_url)")
+              input(type="button", value="Shorten", ng-disabled="form.$invalid", toggle-btn, ng-submit="shorten(long_url)")
 
-            div.about
-                p
-                    i s
-                    |  is a high-performance, anonymous URL shortener. 
-                    a(href="https://github.com/karan/s") Open source project
-                    |  by 
-                    a(href="https://www.goel.im") Karan Goel
-                    | .
+      div.about
+        p
+          i s
+          |  is a high-performance, anonymous URL shortener.
+          a(href="https://github.com/karan/s") Open source project
+          |  by
+          a(href="https://www.goel.im") Karan Goel
+          | .

@@ -22,7 +22,7 @@ exports.create_short = function(req, res) {
         if (err) {
             res.json({'status': 'failed', 'message': err});
         } else {
-            if (reply == null) {
+            if (reply === null) {
                 // key does not exists
                 client.mset([
                     id, long_url,
@@ -30,8 +30,8 @@ exports.create_short = function(req, res) {
                     ], function(arr, set_res) {console.log(set_res);});
                 client.lpush(id+'-hits', "");
                 res.json({
-                    'status': 'success', 
-                    'short_id': id, 
+                    'status': 'success',
+                    'short_id': id,
                     'short_url': req.protocol + "://" + req.get('host') + '/' + id,
                     'long_url': long_url
                 });
@@ -40,7 +40,7 @@ exports.create_short = function(req, res) {
             }
         }
     });
-}
+};
 
 exports.find_redirect = function(req, res) {
     var id = req.params.slug;
@@ -50,7 +50,7 @@ exports.find_redirect = function(req, res) {
         if (err) {
             res.json({'status': 'failed', 'message': err});
         } else {
-            if (reply == null) {
+            if (reply === null) {
                 // url has not been created
                 res.json({'status': 'success', 'message': 'id ' + id + ' not found'});
             } else {
@@ -59,8 +59,8 @@ exports.find_redirect = function(req, res) {
                 res.redirect(reply);
             }
         }
-    })
-}
+    });
+};
 
 var make_id = function() {
     var text = "";
@@ -70,4 +70,4 @@ var make_id = function() {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return text;
-}
+};

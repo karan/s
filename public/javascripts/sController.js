@@ -25,14 +25,14 @@ sApp.directive("toggleBtn", function () {
                 .error(function(data) {
                     alert("Something went wrong. Try again!");
                 });
-            }
+            };
         },
         link: function (scope, elem, attrs) {
             elem.bind("click", function () {
                 scope.$apply(scope.shorten(scope.long_url));
             });
         }
-    }
+    };
 });
 
 sApp.directive("selectClick", function () {
@@ -44,5 +44,5 @@ sApp.directive("selectClick", function () {
                 this.select();
             });
         }
-    }
+    };
 });
