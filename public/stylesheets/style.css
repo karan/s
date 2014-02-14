@@ -47,11 +47,9 @@ h1 {
 
 div.form {
     width: 50%;
-    display: inline-block;
-    position: relative;
     top: 50%;
     height: 30%;
-    margin-top: -15%;
+    margin-left: 25%;
 }
 
 input[type="url"] {
@@ -110,4 +108,38 @@ input[type="button"]:disabled {
     filter: alpha(opacity=65);
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+@-webkit-keyframes slideDown {
+    0%, 100% { -webkit-transform: translateY(-100px); }
+    10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+    0%, 100% { -moz-transform: translateY(-100px); }
+    10%, 90% { -moz-transform: translateY(0px); }
+}
+
+.error-block {
+    width: 50%;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden; 
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+    -webkit-transform: translateY(-100px);
+    -webkit-animation: slideDown 2.5s 1.0s 1 ease forwards;
+    -moz-transform:    translateY(-100px);
+    -moz-animation:    slideDown 2.5s 1.0s 1 ease forwards;
 }

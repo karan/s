@@ -7,16 +7,19 @@ html
         script(src='/javascripts/sController.js')
 
         meta(name="viewport", content="width=device-width, user-scalable=no")
-    body
+    body(ng-app="sApp")
+        p.error-block(ng-show="form.$invalid && form.url.$dirty") Enter a valid URL that starts with "http://".
         div.wrap
             div.logo
                 h1 s
-            div.form(ng-app="sApp")
-                form(name="form")
+            div.form
+                form(name="form", novalidate)
                     div
                         div.input-grp
-                            input.long_url(type="url", placeholder="Enter long URL", ng-model="long_url", required, autofocus, class="long-field", ng-required="true")
+                            input.long_url(type="url", placeholder="Enter long URL", ng-model="long_url", required, autofocus="true", class="long-field", ng-required="true", name="url", ng-keyup="$event.keyCode == 13 && form.$valid ? shorten(long_url) : null")
+
                             input(type="button", value="Shorten", ng-disabled="form.$invalid", toggle-btn, ng-submit="shorten(long_url)")
+
             div.about
                 p
                     i s

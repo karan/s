@@ -10,11 +10,17 @@ sApp.directive("toggleBtn", function () {
 
             $scope.shorten = function (long_url) {
                 console.log(long_url);
+                if ($scope.form.isvalid) {
+                    $scope.form.$setPristine();
+                    $scope.form.setValidity("invalid url", false);
+                    return;
+                }
                 $http.post("/new", {'long_url': long_url})
                 .success(function(data) {
                     $scope.short_url = data["short_url"];
                     console.log($scope.short_url);
                     $scope.long_url = $scope.short_url;
+                    $scope.form.$setPristine();
                 })
                 .error(function(data) {
                     alert("Something went wrong. Try again!");
