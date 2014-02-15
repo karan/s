@@ -3,10 +3,12 @@ html
     head
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js')
         script(src='/javascripts/sController.js')
+        script(src='/javascripts/index.js')
 
         meta(name="viewport", content="width=device-width, user-scalable=no")
+        
     body(ng-app="sApp")
         p.error-block(ng-show="form.$invalid && form.url.$dirty") Enter a valid URL that starts with "http://".
         div.wrap
