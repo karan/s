@@ -11,7 +11,13 @@ A high-performance, anonymous URL shortener built using Redis + Node.js with a A
 
 - **High performance** - mean response time for `POST` methods is 40ms
 - **Anonymous** - No user data is stored, only timestamps of hits on links are stored for analtics
-- **Extendible** - The code is very simple and minimal to make it easier to extend it's features as needed. 
+- **Extendible** - The code is very simple and minimal to make it easier to extend it's features as needed.
+
+### Quickstart
+    $ brew install redis
+    $ npm install
+    $ redis-server
+    $ node app
 
 ### Performance
 
@@ -94,7 +100,7 @@ Start the redis server
 
 Start the node app
 
-    $ node app.js
+    $ node app
 
 ### Deploy on Heroku
 
