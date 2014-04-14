@@ -52,7 +52,7 @@ exports.find_redirect = function(req, res) {
         } else {
             if (reply == null) {
                 // url has not been created
-                res.json({'status': 'success', 'message': 'id ' + id + ' not found'});
+                res.json({'status': 'failed', 'message': 'id ' + id + ' not found'});
             } else {
                 // found, return the long_url
                 client.lpush(id+'-hits', new Date().getTime());
