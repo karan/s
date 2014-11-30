@@ -1,34 +1,39 @@
 {
   "name": "s",
-  "version": "0.0.2",
-  "scripts": {
-    "start": "node app.js"
+  "description": "s =",
+  "version": "0.0.3",
+  "author": "Karan Goel",
+  "bugs": {
+    "url": "https://github.com/karan/s/issues"
   },
+  "dependencies": {
+    "body-parser": "~1.9.0",
+    "errorhandler": "~1.3.0",
+    "express": "~4.10.4",
+    "jade": "~1.7.0",
+    "method-override": "~2.2.0",
+    "morgan": "~1.5.0",
+    "redis": "~0.12.1",
+    "serve-favicon": "~2.1.5"
+  },
+  "devDependencies": {},
   "engines": {
     "node": "0.10.x"
   },
-  "dependencies": {
-    "express": "3.4.7",
-    "jade": "*",
-    "redis": "*"
-  },
-  "description": "s =",
-  "main": "app.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/karan/s.git"
-  },
+  "homepage": "https://s.goel.im",
   "keywords": [
     "url",
     "shortener",
     "shorten",
     "internet"
   ],
-  "author": "Karan Goel",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/karan/s/issues"
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karan/s.git"
   },
-  "homepage": "https://s.goel.im"
+  "scripts": {
+    "start": "node app.js"
+  }
 }
